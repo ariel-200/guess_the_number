@@ -34,16 +34,21 @@ def main():
 
     (low, high) = configure_range()
     secret = generate_secret(low, high)
+    guess_count = 0 #start guess count at zero
 
     while True:
         guess = get_guess()
         result = check_guess(guess, secret)
+        guess_count += 1 #increment by one everytime the user guesses
         print(result)
 
         if result == correct:
             break
 
+    print(f'You guessed it in {guess_count} guesses!')
     print('Thanks for playing the game!')
+
+
 
 
 if __name__ == '__main__':
